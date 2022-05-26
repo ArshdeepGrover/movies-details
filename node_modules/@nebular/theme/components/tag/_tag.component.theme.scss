@@ -1,0 +1,15 @@
+/**
+ * @license
+ * Copyright Akveo. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+
+@use 'tag';
+@use 'tag-list';
+@use 'tag-input';
+
+@mixin nb-tags-theme() {
+  @include tag.nb-tag-theme();
+  @include tag-list.nb-tag-list-theme();
+  @include tag-input.nb-tag-input-theme();
+}

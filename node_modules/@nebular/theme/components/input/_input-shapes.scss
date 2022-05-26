@@ -1,0 +1,15 @@
+/**
+ * @license
+ * Copyright Akveo. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+
+@use '../../styles/theming' as *;
+
+@mixin input-shapes() {
+  @each $shape in nb-get-shapes() {
+    &.shape-#{$shape} {
+      border-radius: nb-theme(input-#{$shape}-border-radius);
+    }
+  }
+}

@@ -1,0 +1,30 @@
+/**
+ * @license
+ * Copyright Akveo. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+import { Subject } from 'rxjs';
+/**
+ * The `NbDialogRef` helps to manipulate dialog after it was created.
+ * The dialog can be dismissed by using `close` method of the dialogRef.
+ * You can access rendered component as `content` property of the dialogRef.
+ * `onBackdropClick` streams click events on the backdrop of the dialog.
+ * */
+export class NbDialogRef {
+    constructor(overlayRef) {
+        this.overlayRef = overlayRef;
+        this.onClose$ = new Subject();
+        this.onClose = this.onClose$.asObservable();
+        this.onBackdropClick = this.overlayRef.backdropClick();
+    }
+    /**
+     * Hides dialog.
+     * */
+    close(res) {
+        this.overlayRef.detach();
+        this.overlayRef.dispose();
+        this.onClose$.next(res);
+        this.onClose$.complete();
+    }
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZGlhbG9nLXJlZi5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL3NyYy9mcmFtZXdvcmsvdGhlbWUvY29tcG9uZW50cy9kaWFsb2cvZGlhbG9nLXJlZi50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7OztHQUlHO0FBR0gsT0FBTyxFQUFjLE9BQU8sRUFBRSxNQUFNLE1BQU0sQ0FBQztBQUszQzs7Ozs7S0FLSztBQUNMLE1BQU0sT0FBTyxXQUFXO0lBV3RCLFlBQXNCLFVBQXdCO1FBQXhCLGVBQVUsR0FBVixVQUFVLENBQWM7UUFIcEMsYUFBUSxHQUFpQixJQUFJLE9BQU8sRUFBRSxDQUFDO1FBQ3hDLFlBQU8sR0FBb0IsSUFBSSxDQUFDLFFBQVEsQ0FBQyxZQUFZLEVBQUUsQ0FBQztRQUcvRCxJQUFJLENBQUMsZUFBZSxHQUFHLElBQUksQ0FBQyxVQUFVLENBQUMsYUFBYSxFQUFFLENBQUM7SUFDekQsQ0FBQztJQUVEOztTQUVLO0lBQ0wsS0FBSyxDQUFDLEdBQVM7UUFDYixJQUFJLENBQUMsVUFBVSxDQUFDLE1BQU0sRUFBRSxDQUFDO1FBQ3pCLElBQUksQ0FBQyxVQUFVLENBQUMsT0FBTyxFQUFFLENBQUM7UUFDMUIsSUFBSSxDQUFDLFFBQVEsQ0FBQyxJQUFJLENBQUMsR0FBRyxDQUFDLENBQUM7UUFDeEIsSUFBSSxDQUFDLFFBQVEsQ0FBQyxRQUFRLEVBQUUsQ0FBQztJQUMzQixDQUFDO0NBQ0YiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEBsaWNlbnNlXG4gKiBDb3B5cmlnaHQgQWt2ZW8uIEFsbCBSaWdodHMgUmVzZXJ2ZWQuXG4gKiBMaWNlbnNlZCB1bmRlciB0aGUgTUlUIExpY2Vuc2UuIFNlZSBMaWNlbnNlLnR4dCBpbiB0aGUgcHJvamVjdCByb290IGZvciBsaWNlbnNlIGluZm9ybWF0aW9uLlxuICovXG5cbmltcG9ydCB7IENvbXBvbmVudFJlZiB9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xuaW1wb3J0IHsgT2JzZXJ2YWJsZSwgU3ViamVjdCB9IGZyb20gJ3J4anMnO1xuXG5pbXBvcnQgeyBOYk92ZXJsYXlSZWYgfSBmcm9tICcuLi9jZGsvb3ZlcmxheS9tYXBwaW5nJztcblxuXG4vKipcbiAqIFRoZSBgTmJEaWFsb2dSZWZgIGhlbHBzIHRvIG1hbmlwdWxhdGUgZGlhbG9nIGFmdGVyIGl0IHdhcyBjcmVhdGVkLlxuICogVGhlIGRpYWxvZyBjYW4gYmUgZGlzbWlzc2VkIGJ5IHVzaW5nIGBjbG9zZWAgbWV0aG9kIG9mIHRoZSBkaWFsb2dSZWYuXG4gKiBZb3UgY2FuIGFjY2VzcyByZW5kZXJlZCBjb21wb25lbnQgYXMgYGNvbnRlbnRgIHByb3BlcnR5IG9mIHRoZSBkaWFsb2dSZWYuXG4gKiBgb25CYWNrZHJvcENsaWNrYCBzdHJlYW1zIGNsaWNrIGV2ZW50cyBvbiB0aGUgYmFja2Ryb3Agb2YgdGhlIGRpYWxvZy5cbiAqICovXG5leHBvcnQgY2xhc3MgTmJEaWFsb2dSZWY8VD4ge1xuXG4gIGNvbXBvbmVudFJlZjogQ29tcG9uZW50UmVmPFQ+O1xuXG4gIC8qKlxuICAgKiBTdHJlYW0gb2YgYmFja2Ryb3AgY2xpY2sgZXZlbnRzLlxuICAgKiAqL1xuICByZWFkb25seSBvbkJhY2tkcm9wQ2xpY2s6IE9ic2VydmFibGU8TW91c2VFdmVudD47XG4gIHByb3RlY3RlZCBvbkNsb3NlJDogU3ViamVjdDxhbnk+ID0gbmV3IFN1YmplY3QoKTtcbiAgcmVhZG9ubHkgb25DbG9zZTogT2JzZXJ2YWJsZTxhbnk+ID0gdGhpcy5vbkNsb3NlJC5hc09ic2VydmFibGUoKTtcblxuICBjb25zdHJ1Y3Rvcihwcm90ZWN0ZWQgb3ZlcmxheVJlZjogTmJPdmVybGF5UmVmKSB7XG4gICAgdGhpcy5vbkJhY2tkcm9wQ2xpY2sgPSB0aGlzLm92ZXJsYXlSZWYuYmFja2Ryb3BDbGljaygpO1xuICB9XG5cbiAgLyoqXG4gICAqIEhpZGVzIGRpYWxvZy5cbiAgICogKi9cbiAgY2xvc2UocmVzPzogYW55KSB7XG4gICAgdGhpcy5vdmVybGF5UmVmLmRldGFjaCgpO1xuICAgIHRoaXMub3ZlcmxheVJlZi5kaXNwb3NlKCk7XG4gICAgdGhpcy5vbkNsb3NlJC5uZXh0KHJlcyk7XG4gICAgdGhpcy5vbkNsb3NlJC5jb21wbGV0ZSgpO1xuICB9XG59XG4iXX0=

@@ -1,0 +1,36 @@
+/**
+ * @license
+ * Copyright Akveo. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+
+@use '../../styles/theming' as *;
+
+:host ::ng-deep {
+  display: block;
+
+  .menu-items,
+  .menu-item > .menu-items {
+    list-style-type: none;
+    overflow: hidden;
+  }
+
+  .menu-item a {
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+
+    .menu-title {
+      flex: 1 0 auto;
+      @include nb-rtl(text-align, right);
+    }
+  }
+
+  .menu-item nb-badge {
+    position: static;
+  }
+
+  .menu-group span {
+    display: flex;
+  }
+}

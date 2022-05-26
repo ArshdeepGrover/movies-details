@@ -1,0 +1,26 @@
+<nb-card >
+
+  <nb-card-body >
+    <form [formGroup]="inputForm" (ngSubmit)="onSubmit()" >
+      <input
+      type="text"
+      nbInput
+      fullWidth
+      status="primary"
+      placeholder="Search................"
+      formControlName="movie"
+      status="primary">
+
+      <button nbButton (ngSubmit)="onSubmit()" status="primary">Search</button>
+
+    </form>
+  </nb-card-body>
+
+</nb-card>
+
+<div class = "card">
+  <app-movie
+  *ngFor="let movie of movies | async"
+    [movie]="movie">
+  </app-movie>
+</div>
