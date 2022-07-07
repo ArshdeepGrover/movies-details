@@ -1,0 +1,19 @@
+<!-- src/app/movies/movies.component.html -->
+
+<div class="container content-wrapper">
+  <div *ngFor="let movie of movies" class="card">
+    <img
+      src="{{ imageUrl(movie.poster).width(200).url() }}"
+      alt="{{ movie.title }}"
+    />
+    <div class="card-body">
+      <h5 class="card-title">
+        {{ movie.title }} Hello
+      </h5>
+      <p class="card-text" *ngFor="let view of movie.overview">
+        {{ view["children"][0]["text"] }}
+      </p>
+      <div>{{ movie.releaseDate | date }}</div>
+    </div>
+  </div>
+</div>

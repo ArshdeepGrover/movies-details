@@ -1,0 +1,40 @@
+{
+  "name": "sanityngmovies",
+  "private": true,
+  "version": "1.0.0",
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5",
+  "main": "package.json",
+  "author": "Arshdeep singh <arsh199820@gmail.com>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "sanity start",
+    "build": "sanity build"
+  },
+  "keywords": [
+    "sanity"
+  ],
+  "dependencies": {
+    "@sanity/base": "^2.30.1",
+    "@sanity/client": "^3.3.2",
+    "@sanity/core": "^2.30.2",
+    "@sanity/default-layout": "^2.30.1",
+    "@sanity/default-login": "^2.30.1",
+    "@sanity/desk-tool": "^2.30.1",
+    "@sanity/eslint-config-studio": "^2.0.0",
+    "@sanity/google-maps-input": "^2.30.1",
+    "@sanity/image-url": "^1.0.1",
+    "@sanity/vision": "^2.30.1",
+    "@types/node": "^18.0.3",
+    "eslint": "^8.6.0",
+    "prop-types": "^15.7",
+    "react": "^17.0",
+    "react-dom": "^17.0",
+    "react-icons": "^3.11.0",
+    "styled-components": "^5.2.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ArshdeepGrover/SearchMovie.git"
+  }
+}

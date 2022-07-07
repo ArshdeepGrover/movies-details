@@ -14,6 +14,8 @@ import { MovieService } from './movie.service';
 import { MovesInterceptor } from './moves.interceptor';
 import { BookmarkComponent } from './bookmark/bookmark.component';
 import { RouterModule, Routes } from '@angular/router';
+import { MovieSanityComponent } from './movie-sanity/movie-sanity.component';
+import { MoviesComponent } from './movie-sanity/movies/movies.component';
 
 
 
@@ -24,6 +26,8 @@ import { RouterModule, Routes } from '@angular/router';
     SMovieSearchComponent,
     MovieComponent,
     BookmarkComponent,
+    MovieSanityComponent,
+    MoviesComponent,
   ],
   imports: [
     BrowserModule,
