@@ -1,37 +1,35 @@
-
-.img{
+.img {
   margin: 0;
   padding: 0;
   border-radius: 20px;
   height: 500px;
 }
 
-nb-card-front{
+nb-card-front {
   display: flex;
   border: 0;
   border-radius: 10px;
   padding: 0;
 }
-.title{
+.title {
   background-color: #3d53c5;
   color: #fff;
   text-align: center;
   font-size: xx-large;
-
 }
 
-.List{
- align-items: center;
- text-align: center;
- font-size: x-large;
+.List {
+  align-items: center;
+  text-align: center;
+  font-size: x-large;
 }
 nb-card-footer {
   padding: 10px;
   padding-left: 25%;
 }
 
-.bookmarkButton{
-  font-size:x-large;
+.bookmarkButton {
+  font-size: x-large;
   color: #ffffff;
   background-color: #3d53c5;
   padding: 0;
@@ -40,7 +38,6 @@ nb-card-footer {
   border-radius: 10px;
 }
 
-.List nb-list-item{
+.List nb-list-item {
   font-size: large;
 }
-

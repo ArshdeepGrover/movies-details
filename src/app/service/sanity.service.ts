@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import sanityClient from "@sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
-import { Actor } from "../model/sactor";
-import { Movie } from "../model/smovie";
+import { IActor } from "../model/sactor";
+import { IMovie } from "../model/smovie";
 
 @Injectable({
   providedIn: "root",
@@ -19,7 +19,7 @@ export class SanityService {
   urlFor = (source: any) =>
     imageUrlBuilder(this.sanityClientCredentials.option).image(source);
 
-  async getMovies(): Promise<Movie[]> {
+  async getMovies(): Promise<IMovie[]> {
     return await this.sanityClientCredentials.option.fetch(
       `*[_type == "movie"]{
       _id,
@@ -31,7 +31,7 @@ export class SanityService {
     );
   }
 
-  async getActors(): Promise<Actor[]> {
+  async getActors(): Promise<IActor[]> {
     return await this.sanityClientCredentials.option.fetch(
       `*[_type == "person"]{
       _id,
