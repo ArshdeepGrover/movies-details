@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BookmarkComponent } from './bookmark/bookmark.component';
-import { MovieSanityComponent } from './movie-sanity/movie-sanity.component';
-import { MoviesComponent } from './movie-sanity/movies/movies.component';
-import { SMovieSearchComponent } from './s-movie-search/s-movie-search.component';
+import { BookmarkComponent } from 'src/app/component/bookmark/bookmark.component';
+import { MovieSanityComponent } from 'src/app/component/movie-sanity/movie-sanity.component';
+import { MoviesComponent } from 'src/app/component/movie-sanity/movies/movies.component';
+import { SMovieSearchComponent } from 'src/app/component/s-movie-search/s-movie-search.component';
+
 
 const routes: Routes = [
   {path:'',redirectTo:'MSearch', pathMatch:'full'},

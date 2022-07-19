@@ -7,9 +7,7 @@
       alt="{{ movie.title }}"
     />
     <div class="card-body">
-      <h5 class="card-title">
-        {{ movie.title }} Hello
-      </h5>
+      <h5 class="card-title">{{ movie.title }} Hello</h5>
       <p class="card-text" *ngFor="let view of movie.overview">
         {{ view["children"][0]["text"] }}
       </p>
