@@ -1,22 +1,23 @@
 input {
   margin-bottom: 10px;
-  width: 90%;
+  width: 80%;
   height: 40px;
   font-size: x-large;
+  @apply com-border-0 com-border-b-2 com-border-black com-pl-2;
 }
 
 button {
-  float: right;
   width: 150px;
+  @apply com-ml-4;
 }
 
-.card{
+.card {
   display: flex;
   flex-wrap: wrap;
   margin-left: 15px;
   justify-content: space-around;
 }
 
-.button{
-  @apply com-text-white com-bg-violet-700 com-text-3xl com-p-1;
+.button {
+  @apply com-text-white com-bg-violet-700 com-text-3xl com-p-1 com-rounded-full;
 }
