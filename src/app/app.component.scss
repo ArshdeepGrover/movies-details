@@ -1,17 +1,15 @@
-.header{
+.header {
   display: flex;
-    justify-content: flex-end;
-    flex: 1;
-}
-
-.title{
+  justify-content: flex-end;
   flex: 1;
-
-}
-nb-layout-header{
-  background-color: #3d53c5;
 }
 
+.title {
+  flex: 1;
+}
+nb-layout-header {
+  background-color: #7323a1;
+}
 
 .button {
   background: #050505;
@@ -19,17 +17,16 @@ nb-layout-header{
   color: white;
   padding: 7px 17px;
   text-align: center;
-  text-decoration: none ;
+  text-decoration: none;
   display: inline-block;
   font-size: 20px;
   margin: 5px;
   margin-top: 30px;
-  cursor:pointer;
+  cursor: pointer;
 }
 
-
-
-
-nb-layout-footer{
-  
+nb-layout-footer {
+  p {
+    @apply com-text-[#7323a1] com-text-xl;
+  }
 }
