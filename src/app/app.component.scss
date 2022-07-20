@@ -6,6 +6,11 @@
 
 .title {
   flex: 1;
+  @apply com-pt-2;
+
+  a {
+    @apply com-text-5xl com-text-white;
+  }
 }
 nb-layout-header {
   background-color: #7323a1;
