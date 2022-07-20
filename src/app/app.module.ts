@@ -10,6 +10,8 @@ import {
   NbListModule,
   NbTabsetModule,
   NbIconModule,
+  NbContextMenuModule,
+  NbMenuModule,
 } from "@nebular/theme";
 import {
   FormBuilder,
@@ -28,6 +30,7 @@ import { MovieSanityComponent } from "src/app/component/movie-sanity/movie-sanit
 import { MoviesComponent } from "src/app/component/movie-sanity/movies/movies.component";
 import { SMovieSearchComponent } from "src/app/component/s-movie-search/s-movie-search.component";
 import { MovieService } from "src/app/service/movie.service";
+import { PracticeComponent } from './component/practice/practice.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,7 @@ import { MovieService } from "src/app/service/movie.service";
     BookmarkComponent,
     MovieSanityComponent,
     MoviesComponent,
+    PracticeComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +57,8 @@ import { MovieService } from "src/app/service/movie.service";
     NbTabsetModule,
     NbIconModule,
     NbEvaIconsModule,
+    NbContextMenuModule,
+    NbMenuModule.forRoot(),
   ],
   providers: [
     MovieService,

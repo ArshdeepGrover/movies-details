@@ -1,32 +1,29 @@
-<nb-layout> //ng theme
+<nb-layout>
+  //ng theme
 
   <nb-layout-header fixed>
     <div class="header">
       <div class="title">
-        <h1><a routerLink="/MSearch" style="text-decoration: none; color:#fff">
-          Search Movie App
-        </a></h1>
+        <h1>
+          <a routerLink="/MSearch" style="text-decoration: none; color: #fff">
+            Search Movie App
+          </a>
+        </h1>
       </div>
       <div>
-        <a class="button"routerLink="/MSearch">
-          Search
-        </a>
-        <a  class="button"routerLink="/Bookmark">
-          Bookmark
-        </a>
-        <a class="button"routerLink="/sanity">
-          Movies by sanity
-        </a>
+        <a class="button" routerLink="/MSearch"> Search </a>
+        <a class="button" routerLink="/Bookmark"> Bookmark </a>
+        <a class="button" routerLink="/sanity"> Movies by sanity </a>
+        <a class="button" routerLink="/practice"> Practice </a>
       </div>
     </div>
   </nb-layout-header>
 
-  <nb-layout-column style="padding: 0;" >
-    <router-outlet ></router-outlet>
+  <nb-layout-column style="padding: 0">
+    <router-outlet></router-outlet>
   </nb-layout-column>
 
-  <nb-layout-footer >
-    <p style="color: red; font-size: large;"> Arshdeep Singh | Demo </p>
+  <nb-layout-footer>
+    <p style="color: red; font-size: large">Arshdeep Singh | Demo</p>
   </nb-layout-footer>
-
 </nb-layout>
