@@ -16,3 +16,7 @@ button {
   margin-left: 15px;
   justify-content: space-around;
 }
+
+.button{
+  @apply com-text-white com-bg-violet-700 com-text-3xl com-p-1;
+}
