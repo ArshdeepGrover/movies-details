@@ -31,6 +31,7 @@ import { MoviesComponent } from "src/app/component/movie-sanity/movies/movies.co
 import { SMovieSearchComponent } from "src/app/component/s-movie-search/s-movie-search.component";
 import { MovieService } from "src/app/service/movie.service";
 import { PracticeComponent } from './component/practice/practice.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { PracticeComponent } from './component/practice/practice.component';
     MovieSanityComponent,
     MoviesComponent,
     PracticeComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
