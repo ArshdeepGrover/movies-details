@@ -1,8 +1,8 @@
-.header {
-  display: flex;
-  justify-content: flex-end;
-  flex: 1;
-}
+// .header {
+//   display: flex;
+//   justify-content: flex-end;
+//   flex: 1;
+// }
 
 .title {
   flex: 1;
@@ -13,7 +13,8 @@
   }
 }
 nb-layout-header {
-  background-color: #7323a1;
+  // background-color: #7323a1;
+  @apply com-bg-primary-500 ;
 }
 
 .options {

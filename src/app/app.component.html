@@ -1,24 +1,14 @@
 <!-- ng theme -->
-<nb-layout>
-  <nb-layout-header fixed>
-    <div class="header">
-      <div class="title">
-        <a routerLink="/MSearch"> Search Movie App </a>
-      </div>
-      <div class="options">
-        <a class="button" routerLink="/MSearch"> Search </a>
-        <a class="button" routerLink="/Bookmark"> Bookmark </a>
-        <a class="button" routerLink="/sanity"> Movies by sanity </a>
-        <a class="button" routerLink="/practice"> Practice </a>
-      </div>
-    </div>
-  </nb-layout-header>
+<!-- <nb-layout> -->
+  <!-- <nb-layout-header> -->
+    <app-navbar></app-navbar>
+  <!-- </nb-layout-header> -->
 
-  <nb-layout-column style="padding: 0">
+  <!-- <nb-layout-column style="padding: 0"> -->
     <router-outlet></router-outlet>
-  </nb-layout-column>
+  <!-- </nb-layout-column> -->
 
-  <nb-layout-footer>
-    <p>Arshdeep Singh | Demo</p>
-  </nb-layout-footer>
-</nb-layout>
+  <!-- <nb-layout-footer> -->
+    <!-- <p>Arshdeep Singh | Demo</p> -->
+  <!-- </nb-layout-footer> -->
+<!-- </nb-layout> -->
