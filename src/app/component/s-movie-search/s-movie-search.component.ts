@@ -14,6 +14,8 @@ export class SMovieSearchComponent implements OnInit {
   movies!: Observable<Array<IMovie>>;
   inputForm!: FormGroup;
 
+  isLoading = true;
+
   constructor(private movieService: MovieService, private fb: FormBuilder) {}
 
   ngOnInit() {
@@ -27,10 +29,11 @@ export class SMovieSearchComponent implements OnInit {
   }
 
   onSubmit() {
+    this.isLoading = false;
     this.movies = this.movieService.searchMovie(
       this.inputForm.controls["movie"].value
     );
-    console.log("submit Works");
+    this.isLoading = false;
     localStorage.setItem("Name", this.query);
   }
 }

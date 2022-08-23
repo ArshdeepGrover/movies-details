@@ -1,23 +1,14 @@
-input {
-  margin-bottom: 10px;
-  width: 80%;
-  height: 40px;
-  font-size: x-large;
-  @apply com-border-0 com-border-b-2 com-border-black com-pl-2;
+.search {
+  @apply com-flex com-mt-3 com-justify-center;
+  form {
+    input {
+      @apply  com-bg-primary-100 com-border-2 com-border-primary-500 com-text-primary-900 com-text-2xl com-px-3 com-py-2 com-rounded-t-lg com-w-[90vw];
+      @apply hover:com-bg-primary-200/70;
+    }
+  }
+  .button {
+    @apply  com-px-4 com-text-2xl com-text-secondary-500 com-ml-5 com-rounded-lg com-border-2 com-border-secondary-500 com-bg-primary-100;
+    @apply hover:com-bg-primary-200;
+  }
 }
 
-button {
-  width: 150px;
-  @apply com-ml-4;
-}
-
-.card {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 15px;
-  justify-content: space-around;
-}
-
-.button {
-  @apply com-text-white com-bg-violet-700 com-text-3xl com-p-1 com-rounded-full;
-}
