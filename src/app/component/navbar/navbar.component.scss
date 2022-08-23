@@ -1,0 +1,13 @@
+.header {
+  @apply com-bg-primary-500  com-h-20 com-flex com-justify-between com-items-center com-p-5;
+  .title {
+    @apply com-text-5xl;
+    @apply com-cursor-pointer;
+  }
+  .options {
+    @apply com-text-2xl;
+    .button {
+      @apply com-bg-gray-300 hover:com-bg-white  com-ml-5 com-text-black com-no-underline com-px-3 com-py-1 com-rounded-lg;
+    }
+  }
+}
