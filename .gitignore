@@ -1,5 +1,11 @@
-node_modules/
+
 .angular
 
+# dependencies
+node_modules
 
-.vscode/
+
+dist/
+
+.vscode
+.vscode/*

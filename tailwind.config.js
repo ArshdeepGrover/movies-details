@@ -1,3 +1,4 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   prefix: "com-",
   content: ["./src/**/*.{html,ts}"],
