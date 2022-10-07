@@ -32,6 +32,7 @@ import { SMovieSearchComponent } from "src/app/component/s-movie-search/s-movie-
 import { MovieService } from "src/app/service/movie.service";
 import { PracticeComponent } from './component/practice/practice.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
+import { FooterComponent } from "src/app/component/footer/footer.component";
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { NavbarComponent } from './component/navbar/navbar.component';
     MoviesComponent,
     PracticeComponent,
     NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

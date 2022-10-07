@@ -12,3 +12,10 @@
   }
 }
 
+.loading-text{
+  @apply com-flex com-justify-center com-items-center com-h-[80vh];
+  h1{
+    @apply com-text-secondary-500 com-text-5xl;
+  }
+}
+

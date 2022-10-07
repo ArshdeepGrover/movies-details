@@ -11,7 +11,11 @@
     <button (ngSubmit)="onSubmit()" class="button">Search</button>
   </div>
 
-  <div *ngIf="isLoading" class="com-flex com-justify-center com-items-center com-mt-20">
+  <div *ngIf="isLoading" class="loading-text">
+    <h1>No movie Search Yet!</h1>
+  </div>
+
+  <!-- <div *ngIf="isLoading" class="com-flex com-justify-center com-items-center com-mt-20">
     <div role="status">
       <svg
         aria-hidden="true"
@@ -30,7 +34,7 @@
         />
       </svg>
     </div>
-  </div>
+  </div> -->
 
   <div class="card">
     <app-movie *ngFor="let movie of movies | async" [movie]="movie">
