@@ -30,11 +30,10 @@ import { MovieSanityComponent } from "src/app/component/movie-sanity/movie-sanit
 import { MoviesComponent } from "src/app/component/movie-sanity/movies/movies.component";
 import { SMovieSearchComponent } from "src/app/component/s-movie-search/s-movie-search.component";
 import { MovieService } from "src/app/service/movie.service";
-import { PracticeComponent } from './component/practice/practice.component';
-import { NavbarComponent } from './component/navbar/navbar.component';
+import { PracticeComponent } from "./component/practice/practice.component";
+import { NavbarComponent } from "./component/navbar/navbar.component";
 import { FooterComponent } from "src/app/component/footer/footer.component";
-import { NgxSliderModule } from '@angular-slider/ngx-slider';
-
+import { NgxSliderModule } from "@angular-slider/ngx-slider";
 
 @NgModule({
   declarations: [
@@ -46,7 +45,7 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
     MoviesComponent,
     PracticeComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,7 +64,7 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
     NbEvaIconsModule,
     NbContextMenuModule,
     NbMenuModule.forRoot(),
-    NgxSliderModule
+    NgxSliderModule,
   ],
   providers: [
     MovieService,
