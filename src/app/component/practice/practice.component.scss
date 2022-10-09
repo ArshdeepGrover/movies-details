@@ -1,3 +1,9 @@
-:host nb-layout-header ::ng-deep nav {
-  justify-content: flex-end;
+::ng-deep {
+  .ngx-slider .ngx-slider-pointer {
+    width: 10px;
+    height: 15px;
+    top: auto; /* to remove the default positioning */
+    bottom: 0;
+    background-color: #22c70a;
+  }
 }
