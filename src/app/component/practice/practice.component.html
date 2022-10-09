@@ -1,16 +1,3 @@
-<nb-layout>
-  <nb-layout-header>
-    <button
-      outline
-      nbButton
-      [nbContextMenu]="items"
-      nbContextMenuTag="my-context-menu"
-    >
-      <nb-icon icon="more-vertical" pack="eva"></nb-icon>
-    </button>
-  </nb-layout-header>
-  <nb-layout-column class="colored-column-basic">Hello World!</nb-layout-column>
-</nb-layout>
-
-
-
+<ngx-slider [(value)]="value" [(highValue)]="highValue" [options]="options"></ngx-slider> 
+ <div>Lower Range Value: {{value}}</div>
+ <div>High Range Value: {{highValue}}</div>
