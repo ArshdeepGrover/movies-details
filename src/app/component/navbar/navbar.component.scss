@@ -1,5 +1,5 @@
 .header {
-  @apply com-bg-primary-500  com-h-20 com-flex com-justify-between com-items-center com-p-5;
+  @apply com-bg-primary-500 com-flex com-justify-between com-items-center com-p-5 com-fixed com-w-full com-top-0 com-z-20;
   .title {
     @apply com-text-5xl;
     @apply com-cursor-pointer;
