@@ -11,29 +11,41 @@ import { MovieService } from "src/app/service/movie.service";
 })
 export class SMovieSearchComponent implements OnInit {
   query!: string;
-  movies!: Observable<Array<IMovie>>;
-  inputForm!: FormGroup;
+  movies: IMovie[] = [];
+  inputForm;
+  moviesFound: boolean = true;
+  isLoading:boolean = false;
 
-  isLoading = true;
-
-  constructor(private movieService: MovieService, private fb: FormBuilder) {}
-
-  ngOnInit() {
+  constructor(private movieService: MovieService, private fb: FormBuilder) {
     this.inputForm = new FormGroup({
       movie: new FormControl(""),
     });
   }
 
+  ngOnInit() {
+    this.movieService.searchMovie("hello").subscribe((movies) => {
+      if (movies) {
+        this.movies = movies.Search;
+      } else {
+        this.moviesFound = false;
+      }
+    });
+  }
+
   getMovieSearchResult() {
-    this.movies = this.movieService.searchMovie(this.query);
+    // this.movies = this.movieService.searchMovie(this.query);
   }
 
   onSubmit() {
-    this.isLoading = false;
-    this.movies = this.movieService.searchMovie(
-      this.inputForm.controls["movie"].value
-    );
-    this.isLoading = false;
-    localStorage.setItem("Name", this.query);
+    this.isLoading = true;
+    this.movieService
+      .searchMovie(this.inputForm.controls["movie"].value)
+      .subscribe((data) => {
+        this.movies = data.Search;
+        if (data.Error) {
+          this.moviesFound = false;
+        }
+        this.isLoading = false;
+      });
   }
 }

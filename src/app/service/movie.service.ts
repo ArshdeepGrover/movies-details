@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Observable, of } from "rxjs";
 import { catchError, map, tap } from "rxjs/operators";
 import { IMovie } from "src/app/model/movie";
@@ -15,10 +15,19 @@ export class MovieService {
   };
 
   constructor(private http: HttpClient) {}
-  searchMovie(searchQuery: string): Observable<Array<IMovie>> {
-    return this.http
-      .get(`&s=${searchQuery}`)
-      .pipe(map((response: any) => response.Search));
+  searchMovie(searchQuery: string): Observable<any> {
+    //www.omdbapi.com/?apikey=3f9071e1&t=hello
+    // return this.http
+    //   .get(`&s=${searchQuery}&plot=full`)
+    //   .pipe(map((response: any) => response.Search));
+    // return this.http.get(
+    //   `www.omdbapi.com/?apikey=3f9071e1&s=${searchQuery}&plot=full`
+    // );
+     const params = new HttpParams().set("s", searchQuery);
+     return this.http.get<any>(
+       `www.omdbapi.com/?apikey=3f9071e1&`,
+       { params }
+     );
   }
 
   getDetails(imdbId: string | null): Observable<any> {
