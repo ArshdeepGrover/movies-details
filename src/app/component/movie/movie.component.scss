@@ -1,27 +1,6 @@
-.card {
-  @apply com-border com-border-solid com-border-gray-200 com-my-4 com-max-w-xs com-rounded-md;
-
-  .title {
-    @apply com-bg-[#7323a1] com-text-white com-text-center com-text-2xl com-rounded-t-md;
-  }
-  .poster {
-    .image {
-      @apply com-m-0 com-p-0 com-h-96 com-w-auto;
-    }
-  }
-}
-
 .bookmarkButton {
-  @apply com-bg-blue-500 com-text-white com-rounded-sm com-px-3;
+  @apply com-bg-pink-500 com-text-white com-font-bold com-py-2 com-px-4 com-rounded-full com-mr-2 hover:com-bg-pink-600;
 }
 .bookmarkButton:hover {
-  @apply com-bg-blue-600;
-}
-
-.card:hover {
-  @apply com-shadow-2xl;
-}
-
-.active {
-  // @apply com-bg-red-300;
+  @apply com-bg-pink-400;
 }

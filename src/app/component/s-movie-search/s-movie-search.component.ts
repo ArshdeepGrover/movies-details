@@ -14,7 +14,8 @@ export class SMovieSearchComponent implements OnInit {
   movies: IMovie[] = [];
   inputForm;
   moviesFound: boolean = true;
-  isLoading:boolean = false;
+  isLoading: boolean = false;
+  page = 1;
 
   constructor(private movieService: MovieService, private fb: FormBuilder) {
     this.inputForm = new FormGroup({
@@ -23,7 +24,7 @@ export class SMovieSearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.movieService.searchMovie("hello").subscribe((movies) => {
+    this.movieService.searchMovie("hello", 2).subscribe((movies) => {
       if (movies) {
         this.movies = movies.Search;
       } else {
@@ -39,7 +40,7 @@ export class SMovieSearchComponent implements OnInit {
   onSubmit() {
     this.isLoading = true;
     this.movieService
-      .searchMovie(this.inputForm.controls["movie"].value)
+      .searchMovie(this.inputForm.controls["movie"].value, this.page)
       .subscribe((data) => {
         this.movies = data.Search;
         if (data.Error) {

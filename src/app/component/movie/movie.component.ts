@@ -1,3 +1,4 @@
+import { MovieService } from "src/app/service/movie.service";
 import { Component, Input, OnInit } from "@angular/core";
 import { IMovie } from "src/app/model/movie";
 
@@ -10,10 +11,13 @@ export class MovieComponent implements OnInit {
   bookmarks!: IMovie[]; //storing Movie objects for localstorage
 
   @Input() movie!: IMovie;
+  movieData: any;
 
-  constructor() {}
+  constructor(private movieService: MovieService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.movieService.getDetails(this.movie.imdbID).subscribe((movie) => {this.movieData = movie;});
+  }
 
   addBookmark(currentMovie: IMovie) {
     // localStorage.setItem("Name", "Blank" )
