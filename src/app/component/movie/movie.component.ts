@@ -9,14 +9,13 @@ import { IMovie } from "src/app/model/movie";
 export class MovieComponent implements OnInit {
   bookmarks!: IMovie[]; //storing Movie objects for localstorage
 
-  @Input()
-  movie!: IMovie;
+  @Input() movie!: IMovie;
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  bookmarkAdd(currentMovie: IMovie) {
+  addBookmark(currentMovie: IMovie) {
     // localStorage.setItem("Name", "Blank" )
 
     // console.log(this.bookmarks);
@@ -47,6 +46,19 @@ export class MovieComponent implements OnInit {
       // if not present add it to bookmarks and set it to localstorage
       this.bookmarks.push(currentMovie);
       localStorage.setItem("bookmarks", JSON.stringify(this.bookmarks));
+    }
+  }
+
+  removeBookmark(currentMovieTitle: String) {
+    //will recieve the movie which needs to be remove from bookmarks
+
+    for (let i = 0; i < this.bookmarks.length; i++) {
+      if (this.bookmarks[i].Title === currentMovieTitle) {
+        //If the title of current Movie is present in the bookmarks, remove it
+        this.bookmarks.splice(i, 1);
+        localStorage.setItem("bookmarks", JSON.stringify(this.bookmarks)); // update local storage
+        return;
+      }
     }
   }
 }

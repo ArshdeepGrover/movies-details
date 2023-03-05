@@ -1,43 +1,27 @@
-.img {
-  margin: 0;
-  padding: 0;
-  border-radius: 20px;
-  height: 500px;
-}
+.card {
+  @apply com-border com-border-solid com-border-gray-200 com-my-4 com-max-w-xs com-rounded-md;
 
-nb-card-front {
-  display: flex;
-  border: 0;
-  border-radius: 10px;
-  padding: 0;
-}
-.title {
-  background-color: #7323a1;
-  color: #fff;
-  text-align: center;
-  font-size: xx-large;
-}
-
-.List {
-  align-items: center;
-  text-align: center;
-  font-size: x-large;
-}
-nb-card-footer {
-  padding: 10px;
-  padding-left: 25%;
+  .title {
+    @apply com-bg-[#7323a1] com-text-white com-text-center com-text-2xl com-rounded-t-md;
+  }
+  .poster {
+    .image {
+      @apply com-m-0 com-p-0 com-h-96 com-w-auto;
+    }
+  }
 }
 
 .bookmarkButton {
-  font-size: x-large;
-  color: #ffffff;
-  background-color: #3d53c5;
-  padding: 0;
-  width: 220px;
-  height: 50px;
-  border-radius: 10px;
+  @apply com-bg-blue-500 com-text-white com-rounded-sm com-px-3;
+}
+.bookmarkButton:hover {
+  @apply com-bg-blue-600;
 }
 
-.List nb-list-item {
-  font-size: large;
+.card:hover {
+  @apply com-shadow-2xl;
+}
+
+.active {
+  // @apply com-bg-red-300;
 }

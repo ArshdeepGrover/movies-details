@@ -1,27 +1,22 @@
-<nb-card-front>
+<!-- <nb-card-front> -->
+<div>
   <nb-card class="card">
     <nb-card-header class="title">{{ movie.Title }}</nb-card-header>
     <nb-card-body>
-      <nb-list class="List">
-        <nb-list-item>
-          <img src="{{ movie.Poster }}" alt="{{ movie.Poster }}" class="img" />
-        </nb-list-item>
-      </nb-list>
-      <nb-list class="List">
-        <nb-list-item> <strong>Year: </strong> {{ movie.Year }} </nb-list-item>
-        <nb-list-item>
-          <strong>Type: </strong> {{ movie.Type | uppercase }}
-        </nb-list-item>
-      </nb-list>
+      <div class="poster">
+        <img src="{{ movie.Poster }}" alt="{{ movie.Poster }}" class="image" />
+      </div>
+      <div class="com-flex com-flex-col">
+        <p><strong>Type: </strong> {{ movie.Type | uppercase }}</p>
+        <p><strong>Year: </strong> {{ movie.Year }}</p>
+      </div>
     </nb-card-body>
-    <nb-card-footer>
-      <button
-        (click)="bookmarkAdd(movie)"
-        class="bookmarkButton"
-        [ngClass]="{ active: movie.active }"
-      >
+    <nb-card-footer class="com-flex com-justify-center com-my-3">
+      <button (click)="addBookmark(movie)" class="bookmarkButton">
         Add to Bookmark
       </button>
     </nb-card-footer>
   </nb-card>
-</nb-card-front>
+</div>
+
+<!-- </nb-card-front> -->

@@ -21,7 +21,6 @@ export class BookmarkComponent implements OnInit {
     if (data != null) {
       // if user has bookmarked some movies then parse and assign the data
       this.bookmarks = JSON.parse(data);
-      console.log("Bookmarked");
     }
   }
   removeBookmark(currentMovieTitle: String) {
