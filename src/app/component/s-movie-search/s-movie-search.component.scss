@@ -2,15 +2,15 @@
   @apply com-flex com-mt-3 com-justify-center;
   form {
     input {
-      @apply com-border-0 com-border-primary-500 com-text-primary-900 com-text-2xl com-px-3 com-py-2 com-rounded-t-lg com-w-[90vw] com-border-b-2 com-bg-transparent;
+      @apply com-rounded-l-lg com-p-4 com-border-t com-mr-0 com-border-b com-border-l com-border-secondary-500 com-bg-white com-w-[90vw] com-text-secondary-500 com-bg-transparent com-text-xl;
     }
     input:focus {
       outline: none;
     }
   }
   .button {
-    @apply com-px-4 com-text-2xl com-text-secondary-500 com-ml-5 com-rounded-lg com-border-2 com-border-secondary-500 com-bg-primary-100;
-    @apply hover:com-bg-primary-200;
+    @apply com-px-8 com-rounded-r-lg com-bg-secondary-500 com-text-white com-font-bold com-p-4 com-uppercase com-border-secondary-500 com-border-t com-border-b com-border-r;
+    @apply hover:com-bg-secondary-400;
   }
 }
 

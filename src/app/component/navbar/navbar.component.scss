@@ -1,8 +1,8 @@
 .header {
-  @apply com-bg-primary-500 com-flex com-justify-between com-items-center com-p-5 com-fixed com-w-full com-top-0 com-z-20;
+  @apply com-bg-primary-500 com-flex com-justify-between com-items-center com-px-5 com-fixed com-w-full com-top-0 com-z-20 com-py-3;
   .title {
-    @apply com-text-5xl;
-    @apply com-cursor-pointer;
+    @apply com-text-3xl com-cursor-pointer;
+    @apply hover:com-text-blue-800;
   }
   .options {
     @apply com-text-2xl;
