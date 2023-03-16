@@ -1,3 +1,4 @@
+import { ProfileComponent } from './component/profile/profile.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BookmarkComponent } from 'src/app/component/bookmark/bookmark.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: "sanity", component: MovieSanityComponent },
   { path: "movies", component: MoviesComponent },
   { path: "practice", component: PracticeComponent },
+  { path: "profile", component: ProfileComponent },
 ];
 
 

@@ -35,6 +35,7 @@ import { NavbarComponent } from "./component/navbar/navbar.component";
 import { FooterComponent } from "src/app/component/footer/footer.component";
 import { NgxSliderModule } from "@angular-slider/ngx-slider";
 import { LoadingAnimationComponent } from './component/loading-animation/loading-animation.component';
+import { ProfileComponent } from './component/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { LoadingAnimationComponent } from './component/loading-animation/loading
     NavbarComponent,
     FooterComponent,
     LoadingAnimationComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
