@@ -3,11 +3,11 @@ import { Component, Input, OnInit } from "@angular/core";
 import { IMovie } from "src/app/model/movie";
 
 @Component({
-  selector: "app-movie",
-  templateUrl: "./movie.component.html",
-  styleUrls: ["./movie.component.scss"],
+  selector: 'app-movie-card',
+  templateUrl: './movie-card.component.html',
+  styleUrls: ['./movie-card.component.scss'],
 })
-export class MovieComponent implements OnInit {
+export class MovieCardComponent implements OnInit {
   bookmarks!: IMovie[]; //storing Movie objects for localstorage
 
   @Input() movie!: IMovie;

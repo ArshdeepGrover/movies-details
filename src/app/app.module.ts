@@ -25,7 +25,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { MovesInterceptor } from "./moves.interceptor";
 import { BookmarkComponent } from "src/app/component/bookmark/bookmark.component";
-import { MovieComponent } from "src/app/component/movie/movie.component";
+import { MovieCardComponent } from "src/app/component/movie-card/movie-card.component";
 import { MovieSanityComponent } from "src/app/component/movie-sanity/movie-sanity.component";
 import { MoviesComponent } from "src/app/component/movie-sanity/movies/movies.component";
 import { SMovieSearchComponent } from "src/app/component/s-movie-search/s-movie-search.component";
@@ -41,7 +41,7 @@ import { ProfileComponent } from './component/profile/profile.component';
   declarations: [
     AppComponent,
     SMovieSearchComponent,
-    MovieComponent,
+    MovieCardComponent,
     BookmarkComponent,
     MovieSanityComponent,
     MoviesComponent,

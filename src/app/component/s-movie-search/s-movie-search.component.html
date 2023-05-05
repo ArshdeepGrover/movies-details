@@ -9,7 +9,7 @@
   <app-loading-animation *ngIf="isLoading"></app-loading-animation>
 
   <div class="card">
-    <app-movie *ngFor="let movie of movies" [movie]="movie"> </app-movie>
+    <app-movie-card *ngFor="let movie of movies" [movie]="movie"> </app-movie-card>
   </div>
 </div>
 
