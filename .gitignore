@@ -13,3 +13,5 @@ dist/
 
 
 .firebase
+node_modules
+

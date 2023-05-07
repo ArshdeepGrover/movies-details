@@ -1,8 +1,0 @@
-@use '../all' as *;
-
-$nb-enabled-themes: (default);
-$nb-enable-css-custom-properties: false;
-
-@include nb-install() {
-  @include nb-theme-global();
-}
