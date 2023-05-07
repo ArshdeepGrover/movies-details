@@ -25,7 +25,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { MovesInterceptor } from "./moves.interceptor";
 import { BookmarkComponent } from "src/app/component/bookmark/bookmark.component";
-import { MovieComponent } from "src/app/component/movie/movie.component";
+import { MovieCardComponent } from "src/app/component/movie-card/movie-card.component";
 import { MovieSanityComponent } from "src/app/component/movie-sanity/movie-sanity.component";
 import { MoviesComponent } from "src/app/component/movie-sanity/movies/movies.component";
 import { SMovieSearchComponent } from "src/app/component/s-movie-search/s-movie-search.component";
@@ -35,12 +35,13 @@ import { NavbarComponent } from "./component/navbar/navbar.component";
 import { FooterComponent } from "src/app/component/footer/footer.component";
 import { NgxSliderModule } from "@angular-slider/ngx-slider";
 import { LoadingAnimationComponent } from './component/loading-animation/loading-animation.component';
+import { ProfileComponent } from './component/profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SMovieSearchComponent,
-    MovieComponent,
+    MovieCardComponent,
     BookmarkComponent,
     MovieSanityComponent,
     MoviesComponent,
@@ -48,6 +49,7 @@ import { LoadingAnimationComponent } from './component/loading-animation/loading
     NavbarComponent,
     FooterComponent,
     LoadingAnimationComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

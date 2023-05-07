@@ -1,7 +1,7 @@
 <div *ngIf="bookmarks.length != 0" style="padding-top: 20px">
   <div class="card">
     <div *ngFor="let movie of bookmarks">
-      <app-movie [movie]="movie"></app-movie>
+      <app-movie-card [movie]="movie"></app-movie-card>
     </div>
   </div>
 </div>

@@ -1,5 +1,5 @@
 <div
-  class="com-w-[36rem] com-mx-auto com-bg-white com-rounded-xl com-shadow-md com-overflow-hidden md:com-w-2xl com-mb-16"
+  class="com-w-[36rem] com-mx-auto com-bg-white com-rounded-xl com-shadow-xl com-overflow-hidden md:com-w-2xl com-mb-16 com-border com-border-gray-200 hover:com-shadow-2xl"
   *ngIf="movieData"
 >
   <div class="md:com-flex">
@@ -10,13 +10,13 @@
         alt="{{ movieData.Title }}"
       />
     </div>
-    <div class="com-px-8 com-py-2">
+    <div class="com-px-8 com-py-2 com-flex com-justify-between com-flex-col">
       <div
         class="com-uppercase com-tracking-wide com-text-3xl com-text-pink-500 com-font-semibold"
       >
         {{ movieData.Title }}
       </div>
-      <p class="com-mt-2 com-text-gray-500 com-line-clamp-3">{{ movieData.Plot }}</p>
+      <!-- <p class="com-mt-2 com-text-gray-500 com-line-clamp-3">{{ movieData.Plot }}</p> -->
       <div class="com-mt-4">
         <ul class="movie-info">
           <li><strong>Type:</strong> {{ movieData.Type }}</li>
