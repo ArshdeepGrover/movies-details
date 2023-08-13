@@ -9,11 +9,12 @@
   <app-loading-animation *ngIf="isLoading"></app-loading-animation>
 
   <div class="card">
-    <app-movie-card *ngFor="let movie of movies" [movie]="movie"> </app-movie-card>
+    <app-movie-card *ngFor="let movie of movies" [movie]="movie">
+    </app-movie-card>
   </div>
 </div>
 
-<div *ngIf="!moviesFound">
+<div *ngIf="moviesNotFound">
   <div class="com-flex com-items-center com-justify-center com-h-screen">
     <div class="com-text-gray-700 com-text-center">
       <h1 class="com-text-4xl com-font-bold com-mb-4">No Movies Found</h1>
