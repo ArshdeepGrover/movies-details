@@ -1,5 +1,5 @@
 <div
-  class="com-w-[36rem] com-mx-auto com-bg-white com-rounded-xl com-shadow-xl com-overflow-hidden md:com-w-2xl com-mb-16 com-border com-border-gray-200 hover:com-shadow-2xl"
+  class="com-w-[36rem] com-mx-auto com-bg-secondary-100/50 com-rounded-xl com-shadow-xl com-overflow-hidden md:com-w-2xl com-mb-16 com-border com-border-gray-200 hover:com-shadow-2xl"
   *ngIf="movieData"
 >
   <div class="md:com-flex">
@@ -19,16 +19,16 @@
       <!-- <p class="com-mt-2 com-text-gray-500 com-line-clamp-3">{{ movieData.Plot }}</p> -->
       <div class="com-mt-4">
         <ul class="movie-info">
-          <li><strong>Type:</strong> {{ movieData.Type }}</li>
+          <li><strong>Type:</strong> {{ movieData.Type | titlecase }}</li>
           <li><strong>Director:</strong> {{ movieData.Director }}</li>
           <li><strong>Language:</strong> {{ movieData.Language }}</li>
           <li><strong>Release Date:</strong> {{ movieData.Released }}</li>
           <li><strong>Rating:</strong> {{ movieData.imdbRating }}</li>
         </ul>
       </div>
-      <button (click)="addBookmark(movie)" class="bookmarkButton">
-        Add to Bookmark
-      </button>
+      <a>
+        <button class="bookmarkButton">More</button>
+      </a>
     </div>
   </div>
 </div>

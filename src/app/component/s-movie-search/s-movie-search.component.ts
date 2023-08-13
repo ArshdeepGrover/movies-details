@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
-import { Observable } from "rxjs";
+import { FormControl, FormGroup } from "@angular/forms";
+import { Router } from "@angular/router";
 import { IMovie } from "src/app/model/movie";
 import { MovieService } from "src/app/service/movie.service";
 
@@ -13,22 +13,28 @@ export class SMovieSearchComponent implements OnInit {
   query!: string;
   movies: IMovie[] = [];
   inputForm;
-  moviesFound: boolean = true;
+  moviesNotFound: boolean = false;
   isLoading: boolean = false;
   page = 1;
 
-  constructor(private movieService: MovieService, private fb: FormBuilder) {
+  constructor(private movieService: MovieService, private router: Router) {
     this.inputForm = new FormGroup({
-      movie: new FormControl(""),
+      movie: new FormControl("avengers"),
     });
   }
 
   ngOnInit() {
-    this.movieService.searchMovie("hello", 2).subscribe((movies) => {
-      if (movies) {
+    this.router.navigate([""], {
+      queryParams: {
+        search: "avengers",
+      },
+    });
+    this.movieService.searchMovie("avengers", 2).subscribe((movies) => {
+      console.log(movies.Response);
+      if (movies.Response === "True") {
         this.movies = movies.Search;
-      } else {
-        this.moviesFound = false;
+      } else if (movies.Error) {
+        this.moviesNotFound = true;
       }
     });
   }
@@ -38,15 +44,23 @@ export class SMovieSearchComponent implements OnInit {
   }
 
   onSubmit() {
+    this.moviesNotFound = false;
     this.isLoading = true;
+    this.router.navigate([""], {
+      queryParams: {
+        search: this.inputForm.controls["movie"].value,
+        page: this.page,
+      },
+    });
+
     this.movieService
       .searchMovie(this.inputForm.controls["movie"].value, this.page)
       .subscribe((data) => {
         this.movies = data.Search;
-        if (data.Error) {
-          this.moviesFound = false;
-        }
         this.isLoading = false;
+        if (data.Error) {
+          this.moviesNotFound = true;
+        }
       });
   }
 }
