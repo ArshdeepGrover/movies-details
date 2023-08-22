@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { UntypedFormControl, UntypedFormGroup } from "@angular/forms";
+import { FormControl, FormGroup } from "@angular/forms";
 import { Router } from "@angular/router";
 import { IMovie } from "src/app/model/movie";
 import { MovieService } from "src/app/service/movie.service";
@@ -18,8 +18,8 @@ export class SMovieSearchComponent implements OnInit {
   page = 1;
 
   constructor(private movieService: MovieService, private router: Router) {
-    this.inputForm = new UntypedFormGroup({
-      movie: new UntypedFormControl("avengers"),
+    this.inputForm = new FormGroup({
+      movie: new FormControl("avengers"),
     });
   }
 
