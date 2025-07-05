@@ -30,12 +30,14 @@ import { MovieSanityComponent } from "src/app/component/movie-sanity/movie-sanit
 import { MoviesComponent } from "src/app/component/movie-sanity/movies/movies.component";
 import { SMovieSearchComponent } from "src/app/component/s-movie-search/s-movie-search.component";
 import { MovieService } from "src/app/service/movie.service";
+import { ThemeService } from "src/app/service/theme.service";
+import { FavoritesService } from "src/app/service/favorites.service";
 import { PracticeComponent } from "./component/practice/practice.component";
 import { NavbarComponent } from "./component/navbar/navbar.component";
 import { FooterComponent } from "src/app/component/footer/footer.component";
 import { NgxSliderModule } from "@angular-slider/ngx-slider";
-import { LoadingAnimationComponent } from './component/loading-animation/loading-animation.component';
-import { ProfileComponent } from './component/profile/profile.component';
+import { LoadingAnimationComponent } from "./component/loading-animation/loading-animation.component";
+import { ProfileComponent } from "./component/profile/profile.component";
 
 @NgModule({
   declarations: [
@@ -72,6 +74,8 @@ import { ProfileComponent } from './component/profile/profile.component';
   ],
   providers: [
     MovieService,
+    ThemeService,
+    FavoritesService,
     { provide: HTTP_INTERCEPTORS, useClass: MovesInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],

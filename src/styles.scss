@@ -7,6 +7,135 @@
 }
 /* You can add global styles to this file, and also import other style files */
 
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap");
+
+/* Tailwind CSS */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom Base Styles */
+@layer base {
+  * {
+    @apply com-border-0;
+  }
+
+  body {
+    @apply com-font-sans com-antialiased com-bg-gradient-to-br com-from-dark-50 com-to-dark-100 dark:com-from-dark-900 dark:com-to-dark-800 com-text-dark-900 dark:com-text-dark-50 com-transition-colors com-duration-300;
+  }
+
+  html {
+    @apply com-scroll-smooth;
+  }
+}
+
+/* Custom Component Styles */
+@layer components {
+  .glass-card {
+    @apply com-bg-white/10 com-backdrop-blur-md com-border com-border-white/20 com-shadow-glass;
+  }
+
+  .glass-card-dark {
+    @apply com-bg-dark-800/50 com-backdrop-blur-md com-border com-border-dark-600/30 com-shadow-glass-dark;
+  }
+
+  .btn-primary {
+    @apply com-px-6 com-py-3 com-bg-gradient-to-r com-from-primary-500 com-to-primary-600 com-text-white com-font-semibold com-rounded-xl com-shadow-lg hover:com-shadow-xl com-transition-all com-duration-300 hover:com-scale-105 com-transform;
+  }
+
+  .btn-secondary {
+    @apply com-px-6 com-py-3 com-bg-gradient-to-r com-from-secondary-500 com-to-secondary-600 com-text-white com-font-semibold com-rounded-xl com-shadow-lg hover:com-shadow-xl com-transition-all com-duration-300 hover:com-scale-105 com-transform;
+  }
+
+  .btn-ghost {
+    @apply com-px-6 com-py-3 com-bg-transparent com-border com-border-dark-300 dark:com-border-dark-600 com-text-dark-700 dark:com-text-dark-300 com-font-semibold com-rounded-xl hover:com-bg-dark-100 dark:hover:com-bg-dark-700 com-transition-all com-duration-300;
+  }
+
+  .input-field {
+    @apply com-w-full com-px-4 com-py-3 com-bg-white/80 dark:com-bg-dark-800/80 com-backdrop-blur-sm com-border com-border-dark-200 dark:com-border-dark-600 com-rounded-xl com-text-dark-900 dark:com-text-dark-100 com-placeholder-dark-500 dark:com-placeholder-dark-400 focus:com-outline-none focus:com-ring-2 focus:com-ring-primary-500 focus:com-border-transparent com-transition-all com-duration-300;
+  }
+
+  .card-hover {
+    @apply com-transition-all com-duration-300 hover:com-scale-105 hover:com-shadow-2xl hover:com-shadow-primary-500/20;
+  }
+
+  .text-gradient {
+    @apply com-bg-gradient-to-r com-from-primary-500 com-to-secondary-500 com-bg-clip-text com-text-transparent;
+  }
+
+  .gradient-border {
+    @apply com-relative com-bg-gradient-to-r com-from-primary-500 com-to-secondary-500 com-p-[2px] com-rounded-xl;
+  }
+
+  .gradient-border > * {
+    @apply com-bg-white dark:com-bg-dark-900 com-rounded-[10px];
+  }
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s linear infinite;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* Custom Animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.8);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Dark mode transitions */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    color 0.3s ease;
+}

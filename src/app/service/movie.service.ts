@@ -8,7 +8,7 @@ import { IMovie } from "src/app/model/movie";
   providedIn: "root",
 })
 export class MovieService {
-  private apiUrl = `www.omdbapi.com/?apikey=3f9071e1&`;
+  private apiUrl = `https://www.omdbapi.com/?apikey=3f9071e1&`;
 
   constructor(private http: HttpClient) {}
 

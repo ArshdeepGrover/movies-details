@@ -1,22 +1,71 @@
 import { MovieService } from "src/app/service/movie.service";
-import { Component, Input, OnInit } from "@angular/core";
+import { FavoritesService } from "src/app/service/favorites.service";
+import { Component, Input, OnInit, OnDestroy } from "@angular/core";
 import { IMovie } from "src/app/model/movie";
+import { Subscription } from "rxjs";
 
 @Component({
-  selector: 'app-movie-card',
-  templateUrl: './movie-card.component.html',
-  styleUrls: ['./movie-card.component.scss'],
+  selector: "app-movie-card",
+  templateUrl: "./movie-card.component.html",
+  styleUrls: ["./movie-card.component.scss"],
 })
-export class MovieCardComponent implements OnInit {
+export class MovieCardComponent implements OnInit, OnDestroy {
   bookmarks!: IMovie[]; //storing Movie objects for localstorage
 
   @Input() movie!: IMovie;
   movieData: any;
+  isFavorite: boolean = false;
+  private favoritesSubscription: Subscription;
 
-  constructor(private movieService: MovieService) {}
+  constructor(
+    private movieService: MovieService,
+    private favoritesService: FavoritesService
+  ) {
+    this.favoritesSubscription = this.favoritesService.favorites$.subscribe(
+      (favorites) => {
+        this.isFavorite = favorites.some(
+          (fav) => fav.imdbID === this.movie?.imdbID
+        );
+      }
+    );
+  }
 
   ngOnInit(): void {
-    this.movieService.getDetails(this.movie.imdbID).subscribe((movie) => {this.movieData = movie;});
+    this.movieService.getDetails(this.movie.imdbID).subscribe({
+      next: (movie) => {
+        this.movieData = movie;
+      },
+      error: (error) => {
+        console.error("Error loading movie details:", error);
+        // Fallback to basic movie data if details fail to load
+        this.movieData = this.movie;
+      },
+    });
+  }
+
+  ngOnDestroy(): void {
+    if (this.favoritesSubscription) {
+      this.favoritesSubscription.unsubscribe();
+    }
+  }
+
+  toggleFavorite(): void {
+    if (this.movieData) {
+      this.favoritesService.toggleFavorite(this.movieData);
+    }
+  }
+
+  viewDetails(): void {
+    // For now, just log the movie details
+    // In a real app, this would navigate to a details page or open a modal
+    console.log("View details for:", this.movieData);
+    // You could implement navigation here:
+    // this.router.navigate(['/movie', this.movieData.imdbID]);
+  }
+
+  onImageError(event: any): void {
+    // Set a placeholder image when the movie poster fails to load
+    event.target.src = "assets/placeholder-movie.jpg";
   }
 
   addBookmark(currentMovie: IMovie) {
