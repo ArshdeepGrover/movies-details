@@ -1,7 +1,113 @@
-<div *ngIf="bookmarks.length != 0" style="padding-top: 20px">
-  <div class="card">
-    <div *ngFor="let movie of bookmarks">
-      <app-movie-card [movie]="movie"></app-movie-card>
+<div
+  class="com-min-h-screen com-bg-gradient-to-br com-from-dark-50 com-to-dark-100 dark:com-from-dark-900 dark:com-to-dark-800 com-py-12"
+>
+  <div class="com-max-w-7xl com-mx-auto com-px-4 sm:com-px-6 lg:com-px-8">
+    <!-- Header -->
+    <div class="com-text-center com-mb-12">
+      <h1
+        class="com-text-4xl com-font-display com-font-bold com-text-dark-900 dark:com-text-dark-100 com-mb-4"
+      >
+        My Favorites
+      </h1>
+      <p
+        class="com-text-dark-600 dark:com-text-dark-400 com-max-w-2xl com-mx-auto"
+      >
+        Your personal collection of favorite movies. Discover, save, and revisit
+        the films you love.
+      </p>
+    </div>
+
+    <!-- Favorites Grid -->
+    <div
+      *ngIf="favorites.length > 0"
+      class="com-grid com-grid-cols-1 md:com-grid-cols-2 lg:com-grid-cols-3 com-gap-8"
+    >
+      <div
+        *ngFor="let movie of favorites; trackBy: trackByMovie"
+        class="com-animate-fade-in com-animation-delay-100"
+        [style.animation-delay]="favorites.indexOf(movie) * 100 + 'ms'"
+      >
+        <app-movie-card [movie]="movie"></app-movie-card>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div
+      *ngIf="favorites.length === 0"
+      class="com-flex com-items-center com-justify-center com-min-h-[60vh]"
+    >
+      <div class="com-text-center com-max-w-md">
+        <div
+          class="com-w-32 com-h-32 com-mx-auto com-mb-8 com-bg-gradient-to-r com-from-primary-100 com-to-secondary-100 dark:com-from-primary-900/30 dark:com-to-secondary-900/30 com-rounded-full com-flex com-items-center com-justify-center"
+        >
+          <svg
+            class="com-w-16 com-h-16 com-text-primary-500 dark:com-text-primary-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+            ></path>
+          </svg>
+        </div>
+        <h3
+          class="com-text-2xl com-font-display com-font-bold com-text-dark-900 dark:com-text-dark-100 com-mb-4"
+        >
+          No Favorites Yet
+        </h3>
+        <p class="com-text-dark-600 dark:com-text-dark-400 com-mb-8">
+          Start building your movie collection! Search for movies and add them
+          to your favorites to see them here.
+        </p>
+        <a
+          routerLink="/Movies"
+          class="com-inline-flex com-items-center com-px-6 com-py-3 com-bg-gradient-to-r com-from-primary-500 com-to-primary-600 com-text-white com-font-semibold com-rounded-xl com-shadow-lg hover:com-shadow-xl com-transition-all com-duration-300 hover:com-scale-105 com-transform"
+        >
+          <svg
+            class="com-w-5 com-h-5 com-mr-2"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            ></path>
+          </svg>
+          Discover Movies
+        </a>
+      </div>
+    </div>
+
+    <!-- Clear All Button -->
+    <div *ngIf="favorites.length > 0" class="com-text-center com-mt-12">
+      <button
+        (click)="clearAllFavorites()"
+        class="com-px-6 com-py-3 com-bg-transparent com-border com-border-error-500 com-text-error-600 dark:com-text-error-400 com-font-semibold com-rounded-xl hover:com-bg-error-50 dark:hover:com-bg-error-900/20 com-transition-all com-duration-300"
+      >
+        <div class="com-flex com-items-center com-justify-center com-gap-2">
+          <svg
+            class="com-w-5 com-h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+            ></path>
+          </svg>
+          Clear All Favorites
+        </div>
+      </button>
     </div>
   </div>
 </div>

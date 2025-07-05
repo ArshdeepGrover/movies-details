@@ -1,34 +1,116 @@
-<div
-  class="com-w-[36rem] com-mx-auto com-bg-secondary-100/50 com-rounded-xl com-shadow-xl com-overflow-hidden md:com-w-2xl com-mb-16 com-border com-border-gray-200 hover:com-shadow-2xl"
-  *ngIf="movieData"
->
-  <div class="md:com-flex">
-    <div class="md:com-flex-shrink-0">
-      <img
-        class="com-h-96 com-w-56 com-object-cover"
-        src="{{ movieData.Poster }}"
-        alt="{{ movieData.Title }}"
-      />
+<div class="com-group com-relative com-overflow-hidden com-rounded-2xl com-bg-white/80 dark:com-bg-dark-800/80 com-backdrop-blur-md com-border com-border-white/20 dark:com-border-dark-600/30 com-shadow-lg hover:com-shadow-2xl com-transition-all com-duration-500 hover:com-scale-105 com-transform card-hover"
+     *ngIf="movieData">
+  
+  <!-- Movie Poster -->
+  <div class="com-relative com-overflow-hidden com-aspect-[2/3]">
+    <img 
+      [src]="movieData.Poster !== 'N/A' ? movieData.Poster : 'assets/placeholder-movie.jpg'" 
+      [alt]="movieData.Title"
+      class="com-w-full com-h-full com-object-cover com-transition-transform com-duration-500 group-hover:com-scale-110"
+      (error)="onImageError($event)"
+    />
+    
+    <!-- Gradient Overlay -->
+    <div class="com-absolute com-inset-0 com-bg-gradient-to-t com-from-black/60 com-via-transparent com-to-transparent com-opacity-0 group-hover:com-opacity-100 com-transition-opacity com-duration-300"></div>
+    
+    <!-- Favorite Button -->
+    <button 
+      (click)="toggleFavorite()"
+      class="com-absolute com-top-4 com-right-4 com-p-2 com-bg-white/20 com-backdrop-blur-sm com-rounded-full com-text-white hover:com-bg-white/30 com-transition-all com-duration-300 com-shadow-lg"
+      [class.com-text-red-500]="isFavorite"
+    >
+      <svg *ngIf="!isFavorite" class="com-w-5 com-h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+      </svg>
+      <svg *ngIf="isFavorite" class="com-w-5 com-h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+      </svg>
+    </button>
+    
+    <!-- Rating Badge -->
+    <div class="com-absolute com-top-4 com-left-4 com-px-2 com-py-1 com-bg-yellow-500 com-text-white com-text-xs com-font-bold com-rounded-full com-shadow-lg">
+      ⭐ {{ movieData.imdbRating || 'N/A' }}
     </div>
-    <div class="com-px-8 com-py-2 com-flex com-justify-between com-flex-col">
-      <div
-        class="com-uppercase com-tracking-wide com-text-3xl com-text-pink-500 com-font-semibold"
+  </div>
+
+  <!-- Movie Info -->
+  <div class="com-p-6">
+    <!-- Title -->
+    <h3 class="com-text-xl com-font-display com-font-bold com-text-dark-900 dark:com-text-dark-100 com-mb-2 com-line-clamp-2 group-hover:com-text-primary-600 dark:group-hover:com-text-primary-400 com-transition-colors com-duration-300">
+      {{ movieData.Title }}
+    </h3>
+    
+    <!-- Year and Type -->
+    <div class="com-flex com-items-center com-gap-2 com-mb-3">
+      <span class="com-px-2 com-py-1 com-bg-primary-100 dark:com-bg-primary-900/30 com-text-primary-700 dark:com-text-primary-300 com-text-xs com-font-medium com-rounded-full">
+        {{ movieData.Year }}
+      </span>
+      <span class="com-px-2 com-py-1 com-bg-secondary-100 dark:com-bg-secondary-900/30 com-text-secondary-700 dark:com-text-secondary-300 com-text-xs com-font-medium com-rounded-full">
+        {{ movieData.Type | titlecase }}
+      </span>
+    </div>
+    
+    <!-- Plot -->
+    <p *ngIf="movieData.Plot && movieData.Plot !== 'N/A'" class="com-text-dark-600 dark:com-text-dark-400 com-text-sm com-mb-4 com-line-clamp-3">
+      {{ movieData.Plot }}
+    </p>
+    
+    <!-- Movie Details -->
+    <div class="com-space-y-2 com-mb-6">
+      <div *ngIf="movieData.Director && movieData.Director !== 'N/A'" class="com-flex com-items-center com-gap-2 com-text-sm">
+        <svg class="com-w-4 com-h-4 com-text-dark-500 dark:com-text-dark-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+        </svg>
+        <span class="com-text-dark-700 dark:com-text-dark-300 com-font-medium">Director:</span>
+        <span class="com-text-dark-600 dark:com-text-dark-400">{{ movieData.Director }}</span>
+      </div>
+      
+      <div *ngIf="movieData.Language && movieData.Language !== 'N/A'" class="com-flex com-items-center com-gap-2 com-text-sm">
+        <svg class="com-w-4 com-h-4 com-text-dark-500 dark:com-text-dark-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+        </svg>
+        <span class="com-text-dark-700 dark:com-text-dark-300 com-font-medium">Language:</span>
+        <span class="com-text-dark-600 dark:com-text-dark-400">{{ movieData.Language }}</span>
+      </div>
+      
+      <div *ngIf="movieData.Released && movieData.Released !== 'N/A'" class="com-flex com-items-center com-gap-2 com-text-sm">
+        <svg class="com-w-4 com-h-4 com-text-dark-500 dark:com-text-dark-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+        </svg>
+        <span class="com-text-dark-700 dark:com-text-dark-300 com-font-medium">Released:</span>
+        <span class="com-text-dark-600 dark:com-text-dark-400">{{ movieData.Released }}</span>
+      </div>
+    </div>
+    
+    <!-- Action Buttons -->
+    <div class="com-flex com-gap-3">
+      <button 
+        (click)="viewDetails()"
+        class="com-flex-1 com-px-4 com-py-2 com-bg-gradient-to-r com-from-primary-500 com-to-primary-600 com-text-white com-font-semibold com-rounded-xl com-shadow-lg hover:com-shadow-xl com-transition-all com-duration-300 hover:com-scale-105 com-transform"
       >
-        {{ movieData.Title }}
-      </div>
-      <!-- <p class="com-mt-2 com-text-gray-500 com-line-clamp-3">{{ movieData.Plot }}</p> -->
-      <div class="com-mt-4">
-        <ul class="movie-info">
-          <li><strong>Type:</strong> {{ movieData.Type | titlecase }}</li>
-          <li><strong>Director:</strong> {{ movieData.Director }}</li>
-          <li><strong>Language:</strong> {{ movieData.Language }}</li>
-          <li><strong>Release Date:</strong> {{ movieData.Released }}</li>
-          <li><strong>Rating:</strong> {{ movieData.imdbRating }}</li>
-        </ul>
-      </div>
-      <a>
-        <button class="bookmarkButton">More</button>
-      </a>
+        <div class="com-flex com-items-center com-justify-center com-gap-2">
+          <svg class="com-w-4 com-h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+          </svg>
+          View Details
+        </div>
+      </button>
+      
+      <button 
+        (click)="toggleFavorite()"
+        class="com-px-4 com-py-2 com-bg-transparent com-border com-border-primary-500 com-text-primary-600 dark:com-text-primary-400 com-font-semibold com-rounded-xl hover:com-bg-primary-50 dark:hover:com-bg-primary-900/20 com-transition-all com-duration-300"
+        [class.com-bg-red-50]="isFavorite"
+        [class.com-border-red-500]="isFavorite"
+        [class.com-text-red-600]="isFavorite"
+      >
+        <svg *ngIf="!isFavorite" class="com-w-4 com-h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+        </svg>
+        <svg *ngIf="isFavorite" class="com-w-4 com-h-4" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+        </svg>
+      </button>
     </div>
   </div>
 </div>
