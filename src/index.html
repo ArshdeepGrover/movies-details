@@ -1,13 +1,169 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Search</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body class="com-bg-primary-100/70">
-  <app-root></app-root>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>CineScope - Modern Movie Search & Discovery</title>
+    <base href="/" />
+
+    <!-- Meta Tags -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="CineScope is a modern movie search and discovery web app that allows users to explore detailed movie information with speed and style. Powered by the OMDb API, CineScope offers an intuitive and elegant interface for searching films, accessing key metadata like cast, plot, ratings, and release year — all in real-time."
+    />
+    <meta
+      name="keywords"
+      content="movies, film, cinema, movie search, movie discovery, CineScope, OMDb, film database, movie metadata, cast, plot, ratings"
+    />
+    <meta name="author" content="CineScope" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://cinescope-lyart.vercel.app/" />
+    <meta
+      property="og:title"
+      content="CineScope - Modern Movie Search & Discovery"
+    />
+    <meta
+      property="og:description"
+      content="CineScope is a modern movie search and discovery web app that allows users to explore detailed movie information with speed and style. Powered by the OMDb API, CineScope offers an intuitive and elegant interface for searching films, accessing key metadata like cast, plot, ratings, and release year — all in real-time."
+    />
+    <meta property="og:image" content="assets/cinescope-preview.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://cinescope-lyart.vercel.app/"
+    />
+    <meta
+      property="twitter:title"
+      content="CineScope - Modern Movie Search & Discovery"
+    />
+    <meta
+      property="twitter:description"
+      content="CineScope is a modern movie search and discovery web app that allows users to explore detailed movie information with speed and style. Powered by the OMDb API, CineScope offers an intuitive and elegant interface for searching films, accessing key metadata like cast, plot, ratings, and release year — all in real-time."
+    />
+    <meta property="twitter:image" content="assets/cinescope-preview.jpg" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/favicon-16x16.png"
+    />
+    <link rel="manifest" href="assets/site.webmanifest" />
+
+    <!-- Preconnect to external domains for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://www.omdbapi.com" />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#3b82f6" />
+    <meta name="msapplication-TileColor" content="#3b82f6" />
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+
+    <!-- PWA Support -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="CineScope" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "CineScope",
+        "description": "CineScope is a modern movie search and discovery web app that allows users to explore detailed movie information with speed and style. Powered by the OMDb API, CineScope offers an intuitive and elegant interface for searching films, accessing key metadata like cast, plot, ratings, and release year — all in real-time.",
+        "url": "https://cinescope-lyart.vercel.app",
+        "applicationCategory": "EntertainmentApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "provider": {
+          "@type": "Organization",
+          "name": "CineScope",
+          "url": "https://cinescope-lyart.vercel.app"
+        }
+      }
+    </script>
+  </head>
+  <body
+    class="com-bg-gradient-to-br com-from-dark-50 com-to-dark-100 dark:com-from-dark-900 dark:com-to-dark-800 com-transition-colors com-duration-300"
+  >
+    <!-- Loading Screen -->
+    <div
+      id="loading-screen"
+      class="com-fixed com-inset-0 com-bg-gradient-to-br com-from-primary-500 com-to-secondary-600 com-flex com-items-center com-justify-center com-z-50"
+    >
+      <div class="com-text-center">
+        <div
+          class="com-w-16 com-h-16 com-border-4 com-border-white com-border-t-transparent com-rounded-full com-animate-spin com-mx-auto com-mb-4"
+        ></div>
+        <h1 class="com-text-white com-text-2xl com-font-bold com-mb-2">
+          CineScope
+        </h1>
+        <p class="com-text-white/80 com-text-sm">
+          Discovering amazing movies...
+        </p>
+      </div>
+    </div>
+
+    <!-- Main App -->
+    <app-root></app-root>
+
+    <!-- Loading Screen Script -->
+    <script>
+      // Hide loading screen when app is ready
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          const loadingScreen = document.getElementById("loading-screen");
+          if (loadingScreen) {
+            loadingScreen.style.opacity = "0";
+            loadingScreen.style.transform = "scale(0.95)";
+            setTimeout(function () {
+              loadingScreen.style.display = "none";
+            }, 300);
+          }
+        }, 1000);
+      });
+
+      // Theme detection
+      if (
+        localStorage.getItem("theme") === "dark" ||
+        (!localStorage.getItem("theme") &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+  </body>
 </html>
