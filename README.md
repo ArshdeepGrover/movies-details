@@ -1,60 +1,103 @@
-# Search
+# 🎬 CineScope
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
+Discover, search, and bookmark your favorite movies with **CineScope**! An elegant, modern web app built with Angular, Tailwind CSS, and Sanity, powered by the OMDB API.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🚀 [🟢 Live Demo](https://cinescope-lyart.vercel.app)
 
-## Code scaffolding
+## 🚀 Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- 🔍 **Movie Search**: Find movies by title, actor, or genre using the OMDB API.
+- 🌗 **Dark/Light Mode**: Toggle between beautiful dark and light themes.
+- ⭐ **Favorites**: Bookmark your favorite movies for quick access.
+- 🎬 **Movie Details**: View rich details including plot, director, ratings, and more.
+- 🖼️ **Responsive UI**: Modern, mobile-friendly design with smooth animations.
+- 🛠️ **Built with Angular, Tailwind CSS**
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 🛠️ Tech Stack
 
-## Running unit tests
+- [Angular](https://angular.io/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Nebular UI](https://akveo.github.io/nebular/)
+- [Sanity.io](https://www.sanity.io/) (for demo content)
+- [OMDB API](https://www.omdbapi.com/) (movie data)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## ⚡ Getting Started
 
-## Running end-to-end tests
+### Prerequisites
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Node.js (v14+ recommended)
+- Angular CLI (`npm install -g @angular/cli`)
 
-## Further help
+### Installation
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+# Clone the repo
+git clone https://github.com/ArshdeepGrover/CineScope.git
+cd CineScope
 
-#### Branch Names
+# Install dependencies
+npm install
+```
 
-Your branches should be named with a prefix for their purpose, viz.
+### Development Server
 
-- New Feature: `feature-branchname`
-- Urgent Fix: `hotfix-branchname`
-- Bug Fix: `fix-branchname`
-  In the above examples, replace `branchname` with the name of your branch.
+```bash
+ng serve
+```
 
-#### Git Commit
+Navigate to [http://localhost:4200/](http://localhost:4200/) to see the app. The app will reload if you make changes to the source files.
 
-- `chmod ug+x .husky/*`
-- `git add CONTRIBUTING.md`
-- `git commit &nbsp; -m "docs(contributing): update contributing.md for git commit"`
+### Build
 
-In general the commit pattern mostly looks like this:
+```bash
+ng build
+```
 
-- type(scope?): subject #scope is optional; multiple scopes are supported (current delimiter options: "/", "\" and ",")
+Build artifacts will be stored in the `dist/` directory.
 
-Common types according to [commitlint-config-conventional](https://github.com/conventional-changelog/commitlint/tree/master/@commitlint/config-conventional#type-enum) (based on the Angular convention) can be:
+### Testing
 
-- build: Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
-- chore: Changes to the build process or auxiliary tools and libraries such as documentation generation
-- ci: Changes to our CI configuration files and scripts (example scopes: Circle, BrowserStack, SauceLabs)
-- docs: Documentation only changes
-- feat: A new feature
-- fix: A bug fix
-- perf: A code change that improves performance
-- refactor: A code change that neither fixes a bug nor adds a feature
-- revert:Commit reverts a previous commit
-- style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
-- test: Adding missing tests or correcting existing tests
+```bash
+ng test
+```
+
+Runs unit tests via [Karma](https://karma-runner.github.io).
+
+---
+
+## 📚 Usage
+
+- **Search**: Use the search bar to find movies by title, actor, or genre.
+- **Bookmark**: Click the heart icon on a movie card to add/remove from favorites.
+- **Favorites**: Access your saved movies in the Favorites section.
+- **Theme**: Toggle dark/light mode from the navbar.
+
+---
+
+## 🙏 Credits
+
+- Movie data from [OMDB API](https://www.omdbapi.com/)
+- UI inspired by [Nebular](https://akveo.github.io/nebular/) and [Tailwind CSS](https://tailwindcss.com/)
+- Demo content powered by [Sanity.io](https://www.sanity.io/)
+- Developed by [Arshdeep Singh](https://www.arshdeepsingh.info)
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 📝 Commit Conventions
+
+- Use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) for commit messages.
+- Example: `feat(search): add advanced search filters`
+
+---
+
+> _Made with ❤️ for movie lovers._
